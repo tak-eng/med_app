@@ -18,6 +18,7 @@ class IdeasController < ApplicationController
       flash.now[:alert] = "投稿できません、もう一度入力してください"
       render :new
     end
+  end
 
 private
   def idea_params
