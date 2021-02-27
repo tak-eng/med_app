@@ -1,6 +1,5 @@
 class IdeasController < ApplicationController
   def index
-    @ideas = Idea.all
     @idea = Idea.includes(:tags).all.order('created_at DESC')
   end
 
