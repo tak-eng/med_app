@@ -1,0 +1,11 @@
+<%= form_with(model: @idea, local: true) do |f| %>
+  <div class="#">
+    <h2>カテゴリー名</h2>
+    <%= f.text_field :tag_list, value: @idea.tag_list.join(","), class: "#", placeholder:'Ruby, PHP, Python'%>
+  </div>
+  <div class="#">
+    <h2>本文</h2>
+    <%= f.text_area :body, class: "#", placeholder: "アイデア名" %>
+  </div>
+  <%= f.submit '投稿する' %>
+<% end %>
