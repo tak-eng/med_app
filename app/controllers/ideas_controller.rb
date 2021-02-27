@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   def index
     @idea = Idea.includes(:tags).all.order('created_at DESC')
+    @tags = Idea.tags_on(:tags) 
   end
 
   def new
