@@ -1,4 +1,5 @@
 <%= form_with(model: @idea, local: true) do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
   <div class="#">
     <h2>カテゴリー名</h2>
     <%= f.text_field :tag_list, value: @idea.tag_list.join(","), class: "#", placeholder:'Ruby, PHP, Python'%>

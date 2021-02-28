@@ -25,11 +25,11 @@ class IdeasController < ApplicationController
     # end
   
     if @idea.valid?
-      @idea.save
-      redirect_to root_path
+       @idea.save
+       redirect_to root_path
     else    
-      @idea = Idea.new
-      render :new
+       @idea = Idea.new
+       render :new
     end
   end
 

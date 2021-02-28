@@ -1,5 +1,4 @@
 class Idea < ApplicationRecord
+  validates :body, presence: true
   acts_as_taggable
-
-  validates :idea, presence: true
 end

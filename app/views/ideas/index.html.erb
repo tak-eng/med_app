@@ -7,10 +7,11 @@
        <%= idea.body %>
      </li>
    <% end %> 
-   <div class="#">
+  <div class="#">
    <h2>タグ一覧及びその登録数</h2>
    <% @tags.each do |tag| %>
       <%= link_to "#{tag.name}(#{tag.taggings_count})", ideas_path(tag: tag.name), class: "#" %>
    <% end %>
-</div>
+  </div>
+  <%= link_to '戻る', root_path, class: '#' %>
 </div>
