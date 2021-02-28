@@ -55,6 +55,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'pry-rails'
-gem 'pry-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
