@@ -53,6 +53,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+# 追加したGem
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'pry-rails'
 gem 'rubocop', require: false
