@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Idea, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'アイデア新規登録' do
+    it 'bodyが空では登録できない' do
+      idea = Idea.new(body: '')
+      idea.valid?
+      expect(idea.errors.full_messages).to include("Body can't be blank")
+    end
+  end
 end
