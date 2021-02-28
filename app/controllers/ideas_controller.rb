@@ -1,11 +1,9 @@
 class IdeasController < ApplicationController
   def index
     @idea = Idea.pluck(:id, :body)
-    # @idea = Idea.includes(:tags).all.order('created_at DESC')
     @tags = ActsAsTaggableOn::Tag.all
     if params[:tag]
       @idea = Idea.tagged_with(params[:tag]).pluck(:id, :body)
-
     else
       @ideas = Idea.all
     end
@@ -18,11 +16,6 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
-    # if @idea.save
-    #   render json: @idea, status: :created
-    # else
-    #   render json: @idea, status: :unprocessable_entity
-    # end
     respond_to do |format|
       if @idea.save
         format.json { render :index, status: :created, message: 'Created' }
