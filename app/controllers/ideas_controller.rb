@@ -18,14 +18,17 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
-
+    # if @idea.save
+    #   render json: @idea, status: :created
+    # else
+    #   render json: @idea, status: :unprocessable_entity
+    # end
     respond_to do |format|
-      if @idea.valid?
-        @idea.save
-        format.json { render :index, status: 201 }
-        format.html { redirect_to root_path, message: 'Created' }
+      if @idea.save
+        format.json { render :index, status: :created, message: 'Created' }
+        format.html { redirect_to root_path}
       else
-        format.json { render json: @idea.errors, status: 422, message: 'Unprocessable Entity' }
+        format.json { render json: @idea.errors, status: :unprocessable_entity, message: 'Unprocessable Entity' }
         format.html { render :new }
       end
     end
