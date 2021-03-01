@@ -1,17 +1,21 @@
 <h1>アイデア <%= link_to '(登録)', new_idea_path, class: '#' %></h1>
 
 <div class="#">
-  <h2>アイデア一覧</h2>
-   <% @idea.each do |idea| %>
-     <li>
-       <%= idea %>
-     </li>
-   <% end %> 
   <div class="#">
    <h2>タグ一覧及びその登録数</h2>
    <% @tags.each do |tag| %>
       <%= link_to "#{tag.name}(#{tag.taggings_count})", ideas_path(tag: tag.name), class: "#" %>
    <% end %>
   </div>
+  <h2>アイデア一覧</h2>
+   <% @ideas.each do |idea| %>
+     
+     <ul>
+       <p>--------------------</p>
+       <li>id：<%= idea.id %></li>
+       <li>アイデア名：<%= idea.body %></li>
+       <li>カテゴリー：<%= raw(idea.tag_list.join(', ')) %></li>
+     </ul>
+   <% end %> 
   <%= link_to '戻る', root_path, class: '#' %>
 </div>

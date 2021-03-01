@@ -1,9 +1,8 @@
 class IdeasController < ApplicationController
   def index
-    @idea = Idea.pluck(:id, :body)
     @tags = ActsAsTaggableOn::Tag.all
     if params[:tag]
-      @idea = Idea.tagged_with(params[:tag]).pluck(:id, :body)
+      @ideas = Idea.tagged_with(params[:tag])
     else
       @ideas = Idea.all
     end
