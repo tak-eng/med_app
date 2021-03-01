@@ -19,32 +19,3 @@
 | ------ | ---------- | ----------- |
 | body   | string     | null: false |
 
-
-## itemsテーブル
-
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| name   | string     | null: false |
-
-
-### Association
-- belongs_to :trips
-
-## missionsテーブル
-
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| name   | string     | null: false |
-
-### Association
-- belongs_to :trips
-
-## memosテーブル
-
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| text   | text       | null: false |
-
-
-### Association
-- belongs_to :trips
