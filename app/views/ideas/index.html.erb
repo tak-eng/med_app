@@ -8,14 +8,14 @@
    <% end %>
   </div>
   <h2>アイデア一覧</h2>
+  <%= link_to '全て表示', root_path, class: '#' %>
    <% @ideas.each do |idea| %>
      
      <ul>
        <p>--------------------</p>
        <li>id：<%= idea.id %></li>
-       <li>アイデア名：<%= idea.body %></li>
        <li>カテゴリー：<%= raw(idea.tag_list.join(', ')) %></li>
+       <li>アイデア名：<%= idea.body %></li>
      </ul>
    <% end %> 
-  <%= link_to '戻る', root_path, class: '#' %>
 </div>
