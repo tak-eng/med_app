@@ -17,11 +17,11 @@ class IdeasController < ApplicationController
     @idea = Idea.new(idea_params)
     respond_to do |format|
       if @idea.save
-        format.json { render :index, status: :created, message: 'Created' }
         format.html { redirect_to root_path }
+        format.json { render :index, status: :created, message: 'Created' }
       else
-        format.json { render json: @idea.errors, status: :unprocessable_entity, message: 'Unprocessable Entity' }
         format.html { render :new }
+        format.json { render json: @idea.errors, status: :unprocessable_entity, message: 'Unprocessable Entity' }
       end
     end
   end
