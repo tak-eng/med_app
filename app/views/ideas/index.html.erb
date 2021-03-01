@@ -1,5 +1,4 @@
 <h1>アイデア <%= link_to '(登録)', new_idea_path, class: '#' %></h1>
-
 <div class="#">
   <div class="#">
    <h2>タグ一覧及びその登録数</h2>
@@ -9,8 +8,7 @@
   </div>
   <h2>アイデア一覧</h2>
   <%= link_to '全て表示', root_path, class: '#' %>
-   <% @ideas.each do |idea| %>
-     
+   <% @ideas.each do |idea| %> 
      <ul>
        <p>--------------------</p>
        <li>id：<%= idea.id %></li>
