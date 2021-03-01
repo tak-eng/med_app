@@ -1,24 +1,50 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名：
+アイデア管理用アプリ
 
-Things you may want to cover:
+# アプリケーション概要：
+アイデア名とカテゴリー名を一緒に登録して、カテゴリー名とそれに対応するアイデア名を紐付ける
 
-* Ruby version
+# 実装した機能について：
+・Gemの”acts-as-taggable-on”を活用し、カテゴリー名を”タグ付け機能”として実装した
+・respond_toメソッドを活用してJSON形式で、各ステータスコードを返すように記述
+・カテゴリーの一覧を表示し、カテゴリー名を押せば、同じカテゴリーで登録したアイデア名を一括で表示できるように実装した
 
-* System dependencies
 
-* Configuration
+# DB設計：
+## ideasテーブル
 
-* Database creation
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| body   | string     | null: false |
 
-* Database initialization
 
-* How to run the test suite
+## itemsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| name   | string     | null: false |
 
-* Deployment instructions
 
-* ...
+### Association
+- belongs_to :trips
+
+## missionsテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| name   | string     | null: false |
+
+### Association
+- belongs_to :trips
+
+## memosテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| text   | text       | null: false |
+
+
+### Association
+- belongs_to :trips
