@@ -1,11 +1,11 @@
 class IdeasController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.all
-    if params[:tag]
-      @ideas = Idea.tagged_with(params[:tag])
-    else
-      @ideas = Idea.all
-    end
+    @ideas = if params[:tag]
+               Idea.tagged_with(params[:tag])
+             else
+               Idea.all
+             end
   end
 
   def new
@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
     respond_to do |format|
       if @idea.save
         format.json { render :index, status: :created, message: 'Created' }
-        format.html { redirect_to root_path}
+        format.html { redirect_to root_path }
       else
         format.json { render json: @idea.errors, status: :unprocessable_entity, message: 'Unprocessable Entity' }
         format.html { render :new }
